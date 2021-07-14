@@ -1,5 +1,5 @@
 
-finMaxNode() {
+findMaxNode() {
     // establish a runner as a node to iterate through the thread
     var runner = this.head;
     // establish a variable to hold the node that is the max node
