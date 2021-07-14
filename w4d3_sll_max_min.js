@@ -1,5 +1,9 @@
 
 findMaxNode() {
+    // we added this to make sure that if the node has no value it returns as undefined instead of null
+    if (this.head == null && this.tail == null) {
+        return undefined;
+    }
     // establish a runner as a node to iterate through the thread
     var runner = this.head;
     // establish a variable to hold the node that is the max node
