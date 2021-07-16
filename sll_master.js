@@ -196,6 +196,90 @@ class SinglyLinkedList {
         return temp;
     }
 
+    // moveMinToFront() - find the node with the smallest value in the linked
+    // list (hmmmm) and make it the head of the list. note that the node itself
+    // needs to be moved - you cannot just swap the values of the two nodes!
+    // if your linked list looks like this:
+    // 8 - 4 - 1 - 2 - 7
+    // it should end up looking like this:
+    // 1 - 8 - 4 - 2 - 7
+    // what if the node is already at the head? what if the linked list is
+    // small or empty? be careful!
+
+    moveMinToFront() {
+        // console.log(this.display());
+        if (this.head == null && this.tail == null) {
+          return;
+        }
+        else if (this.head == this.tail) {
+          return;
+        }
+
+        var min = this.findMinNode();
+
+        if (this.head == min) {
+          return;
+        }
+        else {
+          // Find minNode >
+    
+          var runner = this.head;
+    
+          //this is to find the node before the min node >
+          while (runner.next != min) {
+            runner = runner.next;
+          }
+          // right here we need to set runner.next to = the node after min node
+          runner.next = runner.next.next;
+          // Set .next of minNode to this.head
+          min.next = this.head;
+          this.head = min;
+          if (this.head == this.tail) {
+            this.tail = runner;
+          }
+        }
+      }
+
+    // moveMaxToBack() - find the node with the largest value in the linked
+    // list (...) and make it the tail of the list. 
+    // if your linked list looks like this:
+    // 1 - 8 - 4 - 2 - 7
+    // it should end up looking like this:
+    // 1 - 4 - 2 - 7 - 8
+    // remember to check for edge cases
+
+    moveMaxToBack() {
+        if(this.head==null && this.tail==null){
+            return undefined;
+        }
+        if(this.head==this.tail){
+            return "add more nodes dufus"
+        }
+        var nodeToMove=this.findMaxNode()
+        if(this.tail==nodeToMove){
+            return "already at the end, Yay!"
+        }
+        if(nodeToMove==this.head){
+            this.head=nodeToMove.next;
+            nodeToMove.next=null;
+            this.tail.next=nodeToMove;
+            this.tail=nodeToMove;
+            return "you did it!"
+        }
+        var runner=this.head;
+        while(runner.next!=nodeToMove){
+            runner=runner.next;
+        }
+        runner.next=nodeToMove.next;
+        nodeToMove.next=null;
+        this.tail.next=nodeToMove;
+        this.tail=nodeToMove;
+    }
+
+    // remember that we can divide this into multiple problems
+    // 1 - 8 - 4 - 2 - 7
+    // 1 - 4 - 2 - 7
+
 }
 
 function generateNewList(length, min_value, max_value) {
@@ -223,10 +307,26 @@ function generateSLLFromArray(input) {
 }
 
 
-new_sll = generateSLLFromArray([8, 9, 1, 7, 8, 2, -4, 9, 14, 0]);
-console.log(new_sll.display());
-console.log(new_sll.findMinNode());
-console.log(new_sll.findMaxNode());
+null_list = new SinglyLinkedList();
+single_list = generateSLLFromArray([8]);
+two_list_a = generateSLLFromArray([1, 10]);
+two_list_b = generateSLLFromArray([10, 1]);
+three_list_a = generateSLLFromArray([1, 2, 3]);
+three_list_b = generateSLLFromArray([2, 3, 1]);
+three_list_c = generateSLLFromArray([3, 1, 2]);
+random_a = generateNewList(20, -10, 10);
+random_b = generateNewList(15, -20, 20);
+other_list = generateSLLFromArray([8, 1, 1, 7, 1]);
+other_list_b = generateSLLFromArray([8, 1, 1, 8, 7, 1]);
+
+var test_cases = [null_list, single_list, two_list_a, two_list_b, three_list_a, three_list_b, three_list_c, random_a, random_b, other_list, other_list_b];
+
+for (var i = 0; i < test_cases.length; i++) {
+    console.log(test_cases[i].display());
+    test_cases[i].moveMaxToBack();
+    console.log(test_cases[i].display());
+    console.log(test_cases[i].tail);
+}
 
 
 
