@@ -1,5 +1,5 @@
 
-// My progress
+// My incomplete progress
 
 function balancePoint(array)
 
