@@ -67,10 +67,10 @@
 // }
 
 // test case:
-var canvas = [[3, 2, 4, 4, 4],
-                [4, 4, 4, 3, 3],
-                [4, 1, 1, 4, 4]]
-floodFill(canvas, 2, 1, 0)
+// var canvas=[[3, 2, 4, 4, 4],
+//             [4, 4, 4, 3, 3],
+//             [4, 1, 1, 4, 4]]
+// floodFill(canvas, 2, 1, 0)
 
 
 // USING THE INTERNET TO HELP
