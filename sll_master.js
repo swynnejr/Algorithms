@@ -59,7 +59,7 @@ class SinglyLinkedList {
 
         return false;
     }
-    
+
     // display()
     // return a string with the value of every node from the
     // linked list, head to tail - like "3 - 7 - 13 - 4 - 8"
@@ -164,7 +164,7 @@ class SinglyLinkedList {
         var runner = this.head
         var temp = runner
         while (runner != null) {
-            if ( temp.value > runner.value ){
+            if (temp.value > runner.value) {
                 temp = runner
             }
             runner = runner.next;
@@ -187,11 +187,11 @@ class SinglyLinkedList {
         var runner = this.head
         var temp = runner
         while (runner != null) {
-            if ( temp.value < runner.value ){
+            if (temp.value < runner.value) {
                 temp = runner
             }
             runner = runner.next;
-        
+
         }
         return temp;
     }
@@ -209,36 +209,36 @@ class SinglyLinkedList {
     moveMinToFront() {
         // console.log(this.display());
         if (this.head == null && this.tail == null) {
-          return;
+            return;
         }
         else if (this.head == this.tail) {
-          return;
+            return;
         }
 
         var min = this.findMinNode();
 
         if (this.head == min) {
-          return;
+            return;
         }
         else {
-          // Find minNode >
-    
-          var runner = this.head;
-    
-          //this is to find the node before the min node >
-          while (runner.next != min) {
-            runner = runner.next;
-          }
-          // right here we need to set runner.next to = the node after min node
-          runner.next = runner.next.next;
-          // Set .next of minNode to this.head
-          min.next = this.head;
-          this.head = min;
-          if (this.head == this.tail) {
-            this.tail = runner;
-          }
+            // Find minNode >
+
+            var runner = this.head;
+
+            //this is to find the node before the min node >
+            while (runner.next != min) {
+                runner = runner.next;
+            }
+            // right here we need to set runner.next to = the node after min node
+            runner.next = runner.next.next;
+            // Set .next of minNode to this.head
+            min.next = this.head;
+            this.head = min;
+            if (this.head == this.tail) {
+                this.tail = runner;
+            }
         }
-      }
+    }
 
     // moveMaxToBack() - find the node with the largest value in the linked
     // list (...) and make it the tail of the list. 
@@ -249,31 +249,31 @@ class SinglyLinkedList {
     // remember to check for edge cases
 
     moveMaxToBack() {
-        if(this.head==null && this.tail==null){
+        if (this.head == null && this.tail == null) {
             return undefined;
         }
-        if(this.head==this.tail){
+        if (this.head == this.tail) {
             return "add more nodes dufus"
         }
-        var nodeToMove=this.findMaxNode()
-        if(this.tail==nodeToMove){
+        var nodeToMove = this.findMaxNode()
+        if (this.tail == nodeToMove) {
             return "already at the end, Yay!"
         }
-        if(nodeToMove==this.head){
-            this.head=nodeToMove.next;
-            nodeToMove.next=null;
-            this.tail.next=nodeToMove;
-            this.tail=nodeToMove;
+        if (nodeToMove == this.head) {
+            this.head = nodeToMove.next;
+            nodeToMove.next = null;
+            this.tail.next = nodeToMove;
+            this.tail = nodeToMove;
             return "you did it!"
         }
-        var runner=this.head;
-        while(runner.next!=nodeToMove){
-            runner=runner.next;
+        var runner = this.head;
+        while (runner.next != nodeToMove) {
+            runner = runner.next;
         }
-        runner.next=nodeToMove.next;
-        nodeToMove.next=null;
-        this.tail.next=nodeToMove;
-        this.tail=nodeToMove;
+        runner.next = nodeToMove.next;
+        nodeToMove.next = null;
+        this.tail.next = nodeToMove;
+        this.tail = nodeToMove;
     }
 
     // remember that we can divide this into multiple problems
@@ -300,7 +300,7 @@ function generateNewList(length, min_value, max_value) {
 
 function generateSLLFromArray(input) {
     var new_nodelist = new SinglyLinkedList();
-    for( var i = 0 ; i < input.length; i++ ){
+    for (var i = 0; i < input.length; i++) {
         new_nodelist.addToBack(input[i])
     }
     return new_nodelist

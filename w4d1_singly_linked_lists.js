@@ -1,4 +1,4 @@
-```// singly linked lists
+// singly linked lists
 // ListNode class: we'll be using this
 
 class ListNode {
@@ -105,4 +105,3 @@ console.log(new_sll.display());
 
 console.log(new_sll.contains(5));
 console.log(new_sll.contains(9000));
-```
