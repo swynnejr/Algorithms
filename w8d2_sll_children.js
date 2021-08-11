@@ -1,13 +1,13 @@
 class SLNode {
     constructor(val) {
-        this.val = val
-        this.next = null
-        this.child = null
+        this.val = val;
+        this.next = null;
+        this.child = null;
     }
 }
 class SList {
     constructor() {
-        this.head = null
+        this.head = null;
     }
 
     add(newnode) {
@@ -47,37 +47,50 @@ class SList {
         }
         console.log(runner)
     }
+    // MY PROGRESS: DOESNT WORK
+    // flattenChild() {
+    //     // Establish runner
+    //     let runner = this.head;
+    //     // Establish variable for next
+    //     let next = runner.next;
+    //     // Establish empty stack
+    //     var stack = [];
+    //     // Runner iterates through the array
+    //     while (runner) {
+    //         // If there is a child path, it takes the child path
+    //         if (this.child == null){
+    //             runner = runner.next;
+    //         }
+    //         else {
+    //             // If next.previous is not the runner, move next to the stack
+    //             stack.push(runner.next)
+    //             runner.next = runner.child;
+    //             runner = runner.next;
+    //         }
+    //     }
+    //     // runner iterates through the child
 
-    flattenChild() {
-        // Establish runner
-        let runner = this.head;
-        // Establish variable for next
-        let next = runner.next;
-        // Establish empty stack
-        var stack = [];
-        // Runner iterates through the array
-        while (runner) {
-            // If there is a child path, it takes the child path
-            if (this.child == null){
-                runner = runner.next;
-            }
-            else {
-                // If next.previous is not the runner, move next to the stack
+    //     // if runner.next is null, remove the node from the stack, and make it runner.next
+    //     // if (runner.next == null) {
+    //     //     next = stack.head;
+    //     //     runner.next = next;
+    //     // }
+    // return this
+    // }
+    flatten(){
+        let runner = this.head
+        let stack = []
+        while(runner){
+            if(runner.child){
                 stack.push(runner.next)
-                runner.next = runner.child;
-                runner = runner.next;
+                runner.next = runner.child
+            }else if(!runner.next && stack.length) {
+                let next = stack.pop()
+                runner.next = next
             }
+            runner = runner.next
         }
-        // runner iterates through the child
-
-        // if runner.next is null, remove the node from the stack, and make it runner.next
-        // if (runner.next == null) {
-        //     next = stack.head;
-        //     runner.next = next;
-        // }
-    return this
     }
-
 }
 
 mylist = new SList()
