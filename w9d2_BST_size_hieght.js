@@ -98,6 +98,21 @@ class BST{
             return false;
         }
     }
+    balance(node = this.root) {
+        var LeftHeight = 0;
+        var RightHeight = 0;
+        if (node == null) {
+              return true    
+        }
+        LeftHeight = this.height(node.left)
+        RightHeight = this.height(node.right)
+        if (Math.abs(LeftHeight - RightHeight) > 1){
+            return false
+        }
+        var LeftBalance = this.isBalanced(node.left)
+        var RightBalance = this.isBalanced(node.right)
+        // I am missing something here...
+    }
 }
 
 let tree = new BST()
