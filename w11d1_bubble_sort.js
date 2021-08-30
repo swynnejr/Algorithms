@@ -14,7 +14,8 @@ function bubbleSort(arr) {
 
 console.log(bubbleSort([23, 12, 18, 22, 21, 1, 13, 25]));
 
-
+// Of you can swap like this:
+// [arr[i], arr[i+1]]=[arr[i+1], arr[i]]
 
 function swap(arr, xp, yp){
     temp = arr[xp];
