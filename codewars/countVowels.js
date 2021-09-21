@@ -4,36 +4,40 @@
 
 // The input string will only consist of lower case letters and/or spaces.
 
-function getCount(str) {
-    var vowelsCount = 0;
-    for (let v = 0; v < str.length; v++) {
-      if (str[v] == ("a" || "e" || "i" || "o" || "u")) {
-        vowelsCount += 1;
-      }
-    }
-    // enter your majic here
-    
-    return vowelsCount;
-}
-var case1 = "abracadabra"
-getCount(case1);
-
-// Answer Key answer
+// My answer
 
 // function getCount(str) {
 //     var vowelsCount = 0;
-    
+//     for (let v = 0; v < str.length; v++) {
+//       if (str[v] == ("a" || "e" || "i" || "o" || "u")) {
+//         vowelsCount += 1;
+//       }
+//     }
 //     // enter your majic here
-//     for(let i = 0; i<str.length; i++){
-//     if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u'){
-//     vowelsCount += 1;
-//     }
-//     }
-    
+
+//     return vowelsCount;
+// }
+
+// Answer Key answer
+
+function getCount(str) {
+  var vowelsCount = 0;
+
+  // enter your majic here
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u') {
+      vowelsCount += 1;
+    }
+  }
+  console.log(vowelsCount);
+  return vowelsCount;
+}
+getCount("pear tree");
+
 //     console.log(vowelsCount);
 //     return vowelsCount
 //     }
-    
+
 //     getCount('abracadabra');
 
 // function getCount(str) {
@@ -46,7 +50,7 @@ getCount(case1);
 //         }
 //       }
 //     }
-    
+
 //     return vowelsCount;
 //   }
 
